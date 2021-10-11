@@ -1,0 +1,138 @@
+@import "./colors.css";
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--background-color) !important;
+  color: var(--nav-bg-color);
+  font-family: ubuntu !important;
+}
+.navbar {
+  opacity: 0.8;
+  margin-bottom: 0;
+  background-color: var(--background-color);
+  transition: all 0.2s ease-out;
+}
+
+.navbar-container {
+  position: relative;
+}
+
+.navbar .navbar-nav li a {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--brown-color) !important;
+  transition: all 0.2s ease-out;
+}
+
+.navbar-brand {
+  font-size: 25px;
+  transition: all 0.2s ease-out;
+}
+
+.navbar-scroll {
+  opacity: 1;
+}
+
+#top-social-menu {
+  display: none;
+}
+.logo-wrapper {
+  width: max-content;
+  padding-left: 10px;
+  height: 60px;
+}
+.row {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    height: 120px;
+  }
+
+  .navbar-nav > li > a {
+    padding: 0;
+    margin-top: 35px;
+    margin-left: 50px;
+    line-height: 70px;
+  }
+
+  .navbar-brand {
+    font-size: 28px;
+    padding: 0;
+    height: 120px;
+    line-height: 120px;
+  }
+  .logo-wrapper {
+    max-width: 200px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .logo-wrapper img {
+    width: 100%;
+  }
+  #top-social-menu {
+    display: initial;
+  }
+
+  /* Navbar on scroll */
+
+  .navbar-scroll {
+    height: 70px;
+  }
+  .navbar-scroll ul.navbar-nav {
+    margin-top: 25px;
+  }
+
+  .navbar-scroll #top-social-menu {
+    display: none;
+    transition: all 0.2s ease-out;
+  }
+
+  .navbar-scroll .navbar-brand {
+    height: 70px;
+    line-height: 70px;
+  }
+
+  .navbar-scroll .navbar-nav > li > a {
+    opacity: 1;
+    padding: 0;
+    margin-top: 0;
+  }
+}
+
+/* # Hover Link Effect */
+@media (min-width: 768px) {
+  .navbar-nav > li > a::after {
+    position: absolute;
+    top: 80%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--brown-color) !important;
+    content: "";
+    opacity: 0;
+    transition: height 0.3s, opacity 0.3s, transform 0.3s;
+    transform: translateY(-10px);
+  }
+
+  .navbar-nav > li > a:hover::after,
+  .navbar-nav > li > a:focus::after {
+    height: 2px;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Custom fonts */
+@font-face {
+  font-family: ubuntu;
+  src: url("../fonts/ubuntu.ttf");
+}
